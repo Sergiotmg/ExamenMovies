@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -33,7 +34,19 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MoviesView
             super(itemView);
             txtName= itemView.findViewById(R.id.txtName);
             imgThumbnail=itemView.findViewById(R.id.imagen);
+            txtName.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Movies movie=movies.get(getAdapterPosition());
+                    Toast.makeText(context,
+                            movie.getName(),
+                            Toast.LENGTH_LONG).show();
+                }
+            });
+
+            //con la view seria para todo el layout
         }
+
     }
 
 
@@ -58,6 +71,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MoviesView
         GlideApp.with(context)
                 .load(movie.getThumbnail())
                 .into(vh.imgThumbnail);
+
 
     }
 
