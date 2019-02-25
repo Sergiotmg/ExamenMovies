@@ -43,9 +43,6 @@ public class MainActivity extends AppCompatActivity implements Controller.Server
 
         controller.start();
 
-
-
-
     }
 
     // fuer adel activity this nunca es un contexto
